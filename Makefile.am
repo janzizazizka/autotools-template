@@ -27,11 +27,10 @@ myexecutable_LDFLAGS = $(CODE_COVERAGE_LDFLAGS)
 # 'check' comes from 'make check'
 
 @VALGRIND_CHECK_RULES@
-@CODE_COVERAGE_RULES@
+include $(top_srcdir)/aminclude_static.am
 
 # See all code_coverage_* options in the Makefile or m4/ax_code_coverage.m4
-CODE_COVERAGE_IGNORE_PATTERN = tests/*
-CODE_COVERAGE_IGNORE_PATTERN += stdio2.h
+CODE_COVERAGE_IGNORE_PATTERN = "*/tests/*.c"
 
 TESTS = add.ctaptest
 check_PROGRAMS =  add.ctaptest
